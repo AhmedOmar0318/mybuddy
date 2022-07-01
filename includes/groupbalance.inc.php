@@ -4,14 +4,18 @@ include '../private/conn.php';
 
 $paymentid = $_GET['paymentid'];
 $userid = $_SESSION['userid'];
+$groupid = $_GET['groupid'];
+
 
 
 $sql = "SELECT  up.paymentid,up.debt,up.userid,p.date,p.description 
         FROM userpayment up        
         LEFT JOIN payment p on up.paymentid = p.paymentid        
-        WHERE up.paymentid = :paymentid";
+        WHERE up.paymentid = :paymentid and up.groupid = :groupid";
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(':paymentid', $paymentid);
+$stmt->bindParam(':groupid', $groupid);
+
 $stmt->execute();
 
 
@@ -29,7 +33,7 @@ $row3 = $stmt3->fetch(PDO::FETCH_ASSOC);
 
 
 if (isset($_SESSION['userid'])) { ?>
-
+    <button onclick="history.back()">Ga terug</button>
     <div class="">
         <?php if ($stmt3->rowCount() > 0) { ?>
             <h1 class="h1-book-overview">Betaling van <?= $row3['firstname'] ?> </h1>

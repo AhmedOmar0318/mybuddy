@@ -32,7 +32,7 @@ if (isset($_SESSION['userid'])) {
         echo '<p>' . $_SESSION['melding'] . '</p>';
         unset($_SESSION['melding']);
     } ?>
-
+    <button onclick="history.back()">Ga terug</button>
     <div class="col col-1" data-label="Job Id">
         <td>
             <button onclick="window.location.href='index.php?page=addpayment&groupid=<?= $row2["groupid"] ?>'">Betaling
@@ -75,7 +75,7 @@ if (isset($_SESSION['userid'])) {
             <div class="col col-1" data-label="Job Id"><?= $row3["firstname"] ?></div>
             <div class="col col-1" data-label="Job Id">
                 <td>
-                    <button onclick="window.location.href='index.php?page=groupbalance&paymentid=<?= $row["paymentid"] ?>'">
+                    <button onclick="window.location.href='index.php?page=groupbalance&paymentid=<?= $row["paymentid"] ?>&groupid=<?= $row["groupid"] ?>'">
                         Betaling zien
                     </button>
                 </td>

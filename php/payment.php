@@ -124,6 +124,6 @@ if (!$exists) {
 }
 
 
-header('location: ../index.php?page=payments&groupid=' . $groupid);
+header('location: ../index.php?page=groupview&groupid=' . $groupid);
 
 

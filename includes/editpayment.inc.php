@@ -29,6 +29,7 @@ $result2 = $conn->query($sql2);
 if (isset($_SESSION['userid'])) {
 
     ?>
+    <button onclick="history.back()">Ga terug</button>
     <h1 class="h1-book-overview">Betaling bewerken</h1>
 
     <div class="container">

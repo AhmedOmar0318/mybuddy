@@ -8,12 +8,11 @@ $groupid = $_GET['groupid'];
 
 
 
-$sql = "SELECT  up.paymentid,up.debt,up.userid,p.date,p.description 
-        FROM userpayment up        
-        LEFT JOIN payment p on up.paymentid = p.paymentid        
-        WHERE up.paymentid = :paymentid and up.groupid = :groupid";
+$sql = "SELECT  up.paymentid,up.debt,up.userid
+        FROM userpayment up
+        WHERE  up.groupid = :groupid";
 $stmt = $conn->prepare($sql);
-$stmt->bindParam(':paymentid', $paymentid);
+
 $stmt->bindParam(':groupid', $groupid);
 
 $stmt->execute();

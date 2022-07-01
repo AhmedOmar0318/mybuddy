@@ -13,7 +13,10 @@ $sql2 = "SELECT u.userid, u.firstname
 $result2 = $conn->query($sql2);
 
 
-
+if (isset($_SESSION['melding'])) {
+    echo '<p>' . $_SESSION['melding'] . '</p>';
+    unset($_SESSION['melding']);
+}
 
 
 if (isset($_SESSION['userid'])) {

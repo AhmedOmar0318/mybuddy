@@ -10,8 +10,9 @@ $description = $_POST['description'];
 $date = $_POST['date'];
 $userid = $_POST['userid'];
 $exists = false;
+$check = true;
 
-
+if(isset($_POST['userid'])){
 $stmt = $conn->prepare("insert into payment (amount, description,date,groupid,userid)
                                                    values(:amount,:description,:date,:groupid,:userid)");
 $stmt->bindParam(':amount', $amount);
@@ -22,6 +23,9 @@ $stmt->bindParam(':userid', $user);
 $stmt->execute();
 
 $newpaymentid = $conn->lastInsertId();
+
+
+
 
 
 foreach ($userid as $value) {
@@ -121,9 +125,16 @@ if (!$exists) {
 
 } else {
     $_SESSION['melding'] = '1 of meer deelnemers al gekoppeld aan deze betaling.';
+}}else{
+    $_SESSION['melding'] = 'Niemand gekoppeld. Minmaal 1 koppelen.';
+    header('location: ../index.php?page=addpayment&groupid=' . $groupid);
+$check = false;
+
+}
+if($check){
+    header('location: ../index.php?page=groupview&groupid=' . $groupid);
+
 }
 
-
-header('location: ../index.php?page=groupview&groupid=' . $groupid);
 
 

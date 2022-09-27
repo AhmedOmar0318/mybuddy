@@ -11,11 +11,6 @@ $stmt->bindParam(':id', $paymentid);
 $stmt->execute();
 $row = $stmt->fetch();
 
-//$sql = "SELECT * FROM groups WHERE groupid = :id";
-//$stmt2 = $conn->prepare($sql);
-//$stmt2->bindParam(':id', $groupid);
-//$stmt2->execute();
-//$row2 = $stmt2->fetch();
 
 $sql2 = "SELECT u.userid, u.firstname
     FROM members m 

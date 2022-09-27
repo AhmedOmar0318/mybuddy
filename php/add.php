@@ -7,7 +7,6 @@ $name = $_POST['name'];
 $description = $_POST['description'];
 $userid = $_SESSION['userid'];
 
-
 $ahmed = "picture/" . basename($_FILES["picture"]["name"]);
 
 $target_dir = "../picture/";

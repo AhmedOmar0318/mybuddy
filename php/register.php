@@ -8,7 +8,7 @@ $lastname = $_POST['lastname'];
 $email = $_POST['email'];
 $password = $_POST['psw'];
 $passwordrepeat = $_POST['pswrepeat'];
-$role = 'user';
+$role = 'customer';
 
 if ($password == $passwordrepeat) {
 

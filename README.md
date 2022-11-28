@@ -1,7 +1,5 @@
- This is the source of my PHP backend for Mybuddy
- # mybuddy
+# mybuddy
+This is the source of my PHP backend for mybuddy
 
-
-
-Note
+### Note
 I am new to programming and expanding my knowledge by constantly working/learning in a driven state.
